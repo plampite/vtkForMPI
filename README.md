@@ -7,7 +7,7 @@ The third route exploited here is by sending MPI messages between the two indepe
 
 This simple example actually predates an example from Section 10.3 of "Using Advanced MPI" by W. Gropp et al., where visualization on the server side is only implied in their example, and here it is made slightly more concrete by using VTK.
 
-I'm not a C++ or client/server expert, and in general I didn't put too much effort to cover corner cases and similar stuff, I just wanted to test the possibility of doing this. Thus, do not expect production ready code.
+I'm not a C++ or client/server expert, and in general I didn't put too much effort to cover corner cases and similar stuff, I just wanted to test the possibility of doing this (especially when only using a makefile instead of Cmake). Thus, do not expect production ready code.
 
 ## Requirements
 I tested this on Ubuntu 18.04, with the default gcc compilers and make. In order to compile and run the two applications (server and client) you need:
