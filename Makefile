@@ -7,17 +7,49 @@ FFLAGS   = -c -O2
 CXXFLAGS = -c -O2
 
 #VTK STUFF
-LIBS_VTK=-L/usr/local/lib \
--lvtkCommonColor-8.90 \
--lvtkCommonCore-8.90 \
--lvtkCommonExecutionModel-8.90 \
--lvtkFiltersSources-8.90 \
--lvtkInteractionStyle-8.90 \
--lvtkRenderingCore-8.90 \
--lvtkRenderingFreeType-8.90 \
--lvtkRenderingOpenGL2-8.90# \
+VTK_DIR=/opt/VTK
+VTK_VER=9.0
 
-INCLUDE_VTK=-I/usr/local/include/vtk-8.90
+LIBS_VTK=-L$(VTK_DIR)/lib \
+-lvtksys-$(VTK_VER) \
+-lvtkloguru-$(VTK_VER) \
+-lvtkpugixml-$(VTK_VER) \
+-lvtkCommonColor-$(VTK_VER) \
+-lvtkCommonCore-$(VTK_VER) \
+-lvtkCommonDataModel-$(VTK_VER) \
+-lvtkCommonMisc-$(VTK_VER) \
+-lvtkCommonExecutionModel-$(VTK_VER) \
+-lvtkexpat-$(VTK_VER) \
+-lvtkdoubleconversion-$(VTK_VER) \
+-lvtklz4-$(VTK_VER) \
+-lvtklzma-$(VTK_VER) \
+-lvtkzlib-$(VTK_VER) \
+-lvtkIOLegacy-$(VTK_VER) \
+-lvtkIOCore-$(VTK_VER) \
+-lvtkIOXMLParser-$(VTK_VER) \
+-lvtkIOXML-$(VTK_VER) \
+-lvtkParallelDIY-$(VTK_VER) \
+-lvtkParallelCore-$(VTK_VER) \
+-lvtkImagingCore-$(VTK_VER) \
+-lvtkImagingFourier-$(VTK_VER) \
+-lvtkFiltersGeneral-$(VTK_VER) \
+-lvtkFiltersCore-$(VTK_VER) \
+-lvtkCommonTransforms-$(VTK_VER) \
+-lvtkFiltersSources-$(VTK_VER) \
+-lvtkFiltersStatistics-$(VTK_VER) \
+-lvtkFiltersExtraction-$(VTK_VER) \
+-lvtkFiltersGeometry-$(VTK_VER) \
+-lvtkCommonMath-$(VTK_VER) \
+-lvtkInteractionStyle-$(VTK_VER) \
+-lvtkCommonSystem-$(VTK_VER) \
+-lvtkCommonComputationalGeometry-$(VTK_VER) \
+-lvtkRenderingCore-$(VTK_VER) \
+-lvtkRenderingFreeType-$(VTK_VER) \
+-lvtkRenderingUI-$(VTK_VER) \
+-lvtkglew-$(VTK_VER) \
+-lvtkRenderingOpenGL2-$(VTK_VER)# \
+
+INCLUDE_VTK=-I$(VTK_DIR)/include/vtk-$(VTK_VER)
 
 #ALL STUFF
 LIBS_CLIENT=#

@@ -19,6 +19,7 @@ VTK_MODULE_INIT(vtkInteractionStyle)
 #include <vtkRenderWindowInteractor.h>
 #include <vtkRenderer.h>
 #include <vtkSmartPointer.h>
+#include <vtkInteractorStyleTrackballCamera.h>
 #include <array>
 
 //Forward declaration of our vtk subroutine (where all VTK stuff actually is)
@@ -181,6 +182,10 @@ void vtk_example(double const params[5])
   // depending on the nature of the events.
   vtkSmartPointer<vtkRenderWindowInteractor> renderWindowInteractor = vtkSmartPointer<vtkRenderWindowInteractor>::New();
   renderWindowInteractor->SetRenderWindow(renderWindow);
+
+  //The Paraview interactor style
+  vtkSmartPointer<vtkInteractorStyleTrackballCamera> style = vtkSmartPointer<vtkInteractorStyleTrackballCamera>::New();
+  renderWindowInteractor->SetInteractorStyle(style);
 
   // This starts the event loop and as a side effect causes an initial render.
   renderWindowInteractor->Start();
