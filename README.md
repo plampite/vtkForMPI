@@ -3,17 +3,17 @@ vtkForMPI is a just a stub, a proof of concept, that shows how to connect a Fort
 
 You can think of it as the "third way" of having Fortran work with VTK, where the first, common, one is by writing files that VTK based applications (e.g., Paraview) can read, and the second one is by writing explicit Fortran interfaces for an external C++ visualization routine.
 
-The third route exploited here is by sending MPI messages between the two independent applications. This is not much different from the second route, but cooler as it opens up to lot more possibilities as server and client are fully independent (to the point of being in different programming languages; by the same token one could very simply write a GUI for a Fortran program that already takes input from console or text files).
+The third route exploited here is by sending MPI messages between the two independent applications. This is not much different from the second route, but cooler as it opens up to lot more possibilities as server and client are fully independent (to the point of being in different programming languages; by the same token one could very simply write a GUI for a Fortran program that already takes input from console or text files, or use the same approach for in-situ visualizations).
 
 This simple example actually predates an example from Section 10.3 of "Using Advanced MPI" by W. Gropp et al., where visualization on the server side is only implied in their example, and here it is made slightly more concrete by using VTK.
 
 I'm not a C++ or client/server expert, and in general I didn't put too much effort to cover corner cases and similar stuff, I just wanted to test the possibility of doing this (especially when only using a makefile instead of Cmake). Thus, do not expect production ready code.
 
 ## Requirements
-I tested this on Ubuntu 20.04, with the default gcc compilers and make. In order to compile and run the two applications (server and client) you need:
+I tested this on Ubuntu 20.04 with VTK 9.0, MPICH 3.3.2, CMake 3.17.3, default gcc compilers and make. In order to compile and run the two applications (server and client) you need:
 
-1) MPICH MPI Library (the most straightforward to use MPI library for the client/server features we need) and the resulting mpicxx and mpif90 wrappers.
-2) VTK (which in turn needs Cmake).
+1) MPICH 3.3.2 MPI Library (MPICH is the most straightforward to use MPI library for the client/server features we need) and the resulting mpicxx and mpif90 wrappers
+2) VTK 9.0 (which in turn needs Cmake to be compiled)
 
 both installed using the default instructions that I won't repeat here. Note however that the Makefile assumes you have VTK 9.0 installed in /opt/VTK. Change the makefile according to the VTK version you use and its install location.
 
