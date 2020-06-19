@@ -10,18 +10,18 @@ This simple example actually predates an example from Section 10.3 of "Using Adv
 I'm not a C++ or client/server expert, and in general I didn't put too much effort to cover corner cases and similar stuff, I just wanted to test the possibility of doing this (especially when only using a makefile instead of Cmake). Thus, do not expect production ready code.
 
 ## Requirements
-I tested this on Ubuntu 18.04, with the default gcc compilers and make. In order to compile and run the two applications (server and client) you need:
+I tested this on Ubuntu 20.04, with the default gcc compilers and make. In order to compile and run the two applications (server and client) you need:
 
 1) MPICH MPI Library (the most straightforward to use MPI library for the client/server features we need) and the resulting mpicxx and mpif90 wrappers.
 2) VTK (which in turn needs Cmake).
 
-both installed using the default instructions that I won't repeat here. Note however that the Makefile assumes you have VTK 8.9 installed in /usr/local. Change the makefile according to the VTK version you use and its install location.
+both installed using the default instructions that I won't repeat here. Note however that the Makefile assumes you have VTK 9.0 installed in /opt/VTK. Change the makefile according to the VTK version you use and its install location.
 
 ## Compilation
 When all the requirements are satisfied, you can just type "make" to compile both server and client (everything in source tree, sorry about that).
 
 ## Running the codes
-It obviously makes sense to first start the server but, before doing it, you will probably need to add the VTK lib folder to $LD_LIBRARY_PATH (e.g., export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH for VTK installed in /usr/local). Once done, you can launch the server with:
+It obviously makes sense to first start the server but, before doing it, you will probably need to add the VTK lib folder to $LD_LIBRARY_PATH (e.g., export LD_LIBRARY_PATH=/opt/VTK/lib:$LD_LIBRARY_PATH for VTK installed in /opt/VTK). Once done, you can launch the server with:
 
     mpirun -np 1 ./server
 
